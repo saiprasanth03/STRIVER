@@ -1,0 +1,35 @@
+Q)Given an array nums of n integers, find the most frequent element in it i.e., the element that occurs the maximum number of times. 
+If there are multiple elements that appear a maximum number of times, find the smallest of them.
+
+Constraints:
+1 <= n <= 105
+1 <= nums[i] <= 104
+
+class Solution {
+    public int mostFrequentElement(int[] nums) {
+        int[] arr = new int[10001];
+        int feq=0;
+        int finalfeq=0;
+        for(int i=0;i<nums.length;i++)
+        {
+            arr[nums[i]]= arr[nums[i]]+1;
+        }
+        for(int j=0;j<arr.length;j++)
+        {
+            if(arr[j]>feq)
+            {
+                feq=arr[j];
+            }
+        }
+        for(int j=0;j<arr.length;j++)
+        {
+            if(feq==arr[j])
+            {
+                return j;
+            }
+        }
+        return -1;
+    }
+}
+
+
